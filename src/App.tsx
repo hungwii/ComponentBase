@@ -17,10 +17,10 @@ function App() {
         <Button>Hello</Button>
 
         <Menu defaultIndex={0}>
-            <MenuItem>hello</MenuItem>
-            <MenuItem>hello</MenuItem>
-            <MenuItem>hello</MenuItem>
-            <MenuItem>hello</MenuItem>
+            <MenuItem index={0}>hello</MenuItem>
+            <MenuItem index={1}>hello</MenuItem>
+            <MenuItem index={2}>hello</MenuItem>
+            <MenuItem index={3}>hello</MenuItem>
         </Menu>
       </header>
     </div>
