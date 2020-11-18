@@ -50,7 +50,7 @@ describe('test Menu and MenuItem component', () => {
         
     })
     it('click items should change active and call the right callback', ()=>{
-
+        // TODO：完成剩下的测试文件，看下怎么运行测试文件
     })
     it('should render vertical mode when mode is set to vertical', ()=>{
 
