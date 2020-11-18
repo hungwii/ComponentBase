@@ -16,7 +16,7 @@ function App() {
         <Button btnType={ButtonType.Link} href='http://www.baidu.com' disabled={true}>baidua</Button>
         <Button>Hello</Button>
 
-        <Menu defaultIndex={0}>
+        <Menu defaultIndex={0} className='menu-vertical'>
             <MenuItem index={0}>hello</MenuItem>
             <MenuItem index={1}>hello</MenuItem>
             <MenuItem index={2}>hello</MenuItem>

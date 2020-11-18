@@ -1,10 +1,9 @@
 import React, {useState, createContext} from 'react'
 import classNames from 'classnames'
-import { deflate } from 'zlib'
 
 type MenuMode  = 'horizontal' | 'vertical'
 type SelectCallback = (selectIndex: number) => void
-interface MenuProps { //TODO这里的interface 为什么要export出去？ 如果这里用了export会报错
+export interface MenuProps { //TODO这里的interface 为什么要export出去？ 如果这里用了export会报错
      defaultIndex ?:number;
      className ?: string;
      mode ?: MenuMode;
@@ -39,7 +38,7 @@ const Menu: React.FC<MenuProps> = (props) => {
         onSelect : handleClick,
     }
     return (
-        <ul className={classes} style={style}>
+        <ul className={classes} style={style} data-testid='test-menu'>
             <MenuContext.Provider value={passedContext}>
                 {children}
             </MenuContext.Provider>
