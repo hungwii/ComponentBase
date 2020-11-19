@@ -1,5 +1,8 @@
 import React from 'react'
-import { render, RenderResult } from '@testing-library/react'
+import { fireEvent, render, RenderResult, cleanup } from '@testing-library/react'
+import '@testing-library/jest-dom' 
+
+
 
 import Menu, {MenuProps} from './Menu'
 import MenuItem from './MenuItem'
@@ -18,16 +21,16 @@ const testVerProps: MenuProps = {
 const generateMenu = (props:MenuProps) => {
     return (
         <Menu {...props}>
-            <MenuItem index={0}>
+            <MenuItem >
                 active
             </MenuItem>
-            <MenuItem disabled index={1}>
+            <MenuItem disabled>
                 disabled
             </MenuItem>
-            <MenuItem index={2}>
+            <MenuItem>
                 hungwii 
             </MenuItem>
-            <MenuItem index={3}>
+            <MenuItem>
                 hello
             </MenuItem>
         </Menu>
@@ -50,9 +53,19 @@ describe('test Menu and MenuItem component', () => {
         
     })
     it('click items should change active and call the right callback', ()=>{
-        // TODO：完成剩下的测试文件，看下怎么运行测试文件
+        const thirdItem = wrapper.getByText('hungwii')
+        fireEvent.click(thirdItem) //模拟点击第三个菜单按钮
+        expect(thirdItem).toHaveClass('is-active')
+        expect(activeElement).not.toHaveClass('is-active')
+        expect(testProps.onSelect).toHaveBeenCalledWith(2)
+        fireEvent.click(disabledElement) //模拟点击disableElement
+        expect(disabledElement).not.toHaveClass('is-active')
+        expect(testProps.onSelect).not.toHaveBeenCalledWith(1)
     })
     it('should render vertical mode when mode is set to vertical', ()=>{
-
+        cleanup() //因为beforeEach渲染一次，这里又渲染一次，会产生重复。所以调用函数清除之前的
+        const wrapper = render(generateMenu(testVerProps))
+        const menuElement = wrapper.getByTestId('test-menu')
+        expect(menuElement).toHaveClass('menu-vertical')
     })
 })
