@@ -2,6 +2,7 @@ import React from 'react';
 import Button, {ButtonType, ButtonSize} from './components/Button/Button'
 import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
+import SubMenu from './components/Menu/SubMenu'
 
 
 function App() {
@@ -21,6 +22,19 @@ function App() {
             <MenuItem index={1}>hello</MenuItem>
             <MenuItem index={2}>hello</MenuItem>
             <MenuItem index={3}>hello</MenuItem>
+        </Menu>
+
+        <Menu mode='vertical' >
+          <MenuItem>hello</MenuItem>
+          <MenuItem disabled>hello2(disable)</MenuItem>
+          <SubMenu title='sub'>
+            <MenuItem>in hello</MenuItem>
+            <MenuItem>in hello</MenuItem>
+            <MenuItem>in hello</MenuItem>
+          </SubMenu>
+
+
+
         </Menu>
       </header>
     </div>
