@@ -10,19 +10,22 @@ export interface MenuProps { //TODO这里的interface 为什么要export出去�
      mode ?: MenuMode;
      style ?: React.CSSProperties; //TODO这里是什么意思？
      onSelect ?: SelectCallback; //TODO这个是什么意思？
+     defaultOpenSubMenu ?: string[];
 }
 
 interface IMenuContext {
     index: string;
     onSelect ?:SelectCallback;
     mode ?: MenuMode;
+    defaultOpenSubMenu ?: string[];
+
 
 }
 
 export const MenuContext = createContext<IMenuContext>({index: '0'}) //里面是初始值
 
 const Menu: React.FC<MenuProps> = (props) => {
-    const {className, mode, style, children, defaultIndex, onSelect} = props //TODO这里的children在interface中没定义，那么它是怎么来的
+    const {className, mode, style, children, defaultIndex, onSelect, defaultOpenSubMenu} = props //TODO这里的children在interface中没定义，那么它是怎么来的
     const [currentActive, setActive] =  useState(defaultIndex) //我这里的setActive颜色不对
     const classes = classNames('menu', className, {
             [`menu-${mode}`]: mode
@@ -39,6 +42,8 @@ const Menu: React.FC<MenuProps> = (props) => {
         index: currentActive ? currentActive : '0',
         onSelect : handleClick,
         mode : mode,
+        defaultOpenSubMenu,
+
     }
 
     const RenderChildren = () => {
@@ -65,7 +70,8 @@ const Menu: React.FC<MenuProps> = (props) => {
 //定义组件的默认属性，这是React.FC所支持的
 Menu.defaultProps = {
     defaultIndex: '0',
-    mode: 'horizontal'
+    mode: 'horizontal',
+    defaultOpenSubMenu :[],
 }
 
 export default Menu

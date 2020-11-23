@@ -18,7 +18,7 @@ function App() {
         <Button>Hello</Button>
 
 
-        <Menu mode='vertical' >
+        <Menu mode='vertical' onSelect={(index) => {alert(index)}} defaultOpenSubMenu={['2']}>
           <MenuItem>hello</MenuItem>
           <MenuItem disabled>hello2(disable)</MenuItem>
           <SubMenu title='sub'>
