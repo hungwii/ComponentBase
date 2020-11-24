@@ -102,6 +102,6 @@ describe('test Menu and MenuItem component', () => {
         await waitFor(() => {
             expect(wrapper.queryByText('drop1')).not.toBeVisible()
         })
-        
     })
+    
 })
