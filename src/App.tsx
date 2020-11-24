@@ -3,6 +3,11 @@ import Button, {ButtonType, ButtonSize} from './components/Button/Button'
 import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
+import Icon from './components/Icon/Icon'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas)
 
 
 function App() {
@@ -26,10 +31,10 @@ function App() {
             <MenuItem>in hello</MenuItem>
             <MenuItem>in hello</MenuItem>
           </SubMenu>
-
-
-
         </Menu>
+
+
+        <Icon icon='arrow-down' theme='danger' size='10x'></Icon>
       </header>
     </div>
   );
