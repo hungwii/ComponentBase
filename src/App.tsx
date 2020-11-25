@@ -10,6 +10,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas)
 
 
+
 function App() {
   return (
     <div className="App">
@@ -34,7 +35,7 @@ function App() {
         </Menu>
 
 
-        <Icon icon='arrow-down' theme='danger' size='10x'></Icon>
+        <Icon icon='coffee' theme='primary' size='10x'></Icon>
       </header>
     </div>
   );

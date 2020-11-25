@@ -27,6 +27,7 @@
     }
     .submenu-item {
         position: relative;
+        
         .submenu-title {
             display: flex;
             align-items: center;
@@ -46,7 +47,7 @@
             transform: rotate(0deg) !important;
         }
     }
-    is-vertical.isopend {
+    .is-vertical.is-opened {
         .arrow-icon {
             transform: rotate(180deg) !important;
         }
