@@ -9,5 +9,5 @@ export default {
 
 const Template: Story<BaseButtonProps>= (args) => <Button {...args}> Hw Button </Button>
 
-export const Primary = Template.bind({})
-Primary.args = { btnSize: 'large', btnType: 'primary'} //这句话是设置展示的时候的默认状态的
+export const SimpleButton = Template.bind({})
+SimpleButton.args = { btnSize: 'large', btnType: 'primary'} //这句话是设置展示的时候的默认状态的
