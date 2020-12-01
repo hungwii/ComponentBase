@@ -1,7 +1,7 @@
 import React from 'react'
 import {render, fireEvent} from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Button, {ButtonProps, ButtonType, ButtonSize} from './Button'
+import Button, {ButtonProps} from './Button'
 const defaultProps = {
     onClick: jest.fn()
 }
@@ -41,7 +41,7 @@ describe('test Button component', () => {
 
     })
 
-    it('should render disabled button when disabled ', ()=>{
+    it('should render disabled button when disabled', ()=>{
         const wrapper = render(<Button disabled={true}>disableButton</Button>)
         const element = wrapper.getByText("disableButton") as HTMLButtonElement
         expect(element).toBeInTheDocument()
