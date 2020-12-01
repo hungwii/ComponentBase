@@ -26,14 +26,14 @@ describe('test Button component', () => {
     })
 
     it('should render the correct component based on different props', () => {
-        const wrapper = render(<Button btnType={ButtonType.Primary} btnSize={ButtonSize.Large}>Hello</Button>) //TODO为什么enum没办法做到双向映射
+        const wrapper = render(<Button btnType='primary' btnSize='large'>Hello</Button>) //TODO为什么enum没办法做到双向映射
         const element  = wrapper.getByText("Hello")
         expect(element).toBeInTheDocument()
         expect(element).toHaveClass('btn btn-primary btn-large')
     })
 
     it('should render a link when btnType wquals link and href is provided', () => {
-        const wrapper = render(<Button btnType={ButtonType.Link} href='http://hello'>Link</Button>)
+        const wrapper = render(<Button btnType='link' href='http://hello'>Link</Button>)
         const element = wrapper.getByText("Link")
         expect(element).toBeInTheDocument()
         expect(element.tagName).toEqual("A") //TODO这个是什么？
