@@ -14,7 +14,7 @@ type ButtonSize = 'large' | 'small'
 //     Small = 'small',
 // }
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
     disabled ?: boolean;
     btnSize ?: ButtonSize;
     btnType ?: ButtonType;
