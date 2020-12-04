@@ -13,4 +13,6 @@ export default {
 const Template :Story<IconProps> = (args) => <Icon {...args} ></Icon>
 
 export const simpleIcon = Template.bind({})
-simpleIcon.args = {icon:'angry' ,theme:'primary', size:'10x'}
+simpleIcon.args = {icon:'coffee' ,theme:'primary', size:'10x'}
+
+//TODO:把图标的选择做成可选的
