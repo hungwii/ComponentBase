@@ -82,12 +82,12 @@
   }
   .input-group > .hw-input-group-prepend,
   .input-group.input-group-append > .hw-input-inner {
-    // @include border-right-radius(0);
+    @include border-right-radius(0);
   }
   
   .input-group > .hw-input-group-append,
   .input-group.input-group-prepend > .hw-input-inner {
-    // @include border-left-radius(0);
+    @include border-left-radius(0);
   }
   
   .input-size-sm .hw-input-inner {
