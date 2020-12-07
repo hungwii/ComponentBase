@@ -6,7 +6,7 @@ export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
     onSelect ?: (item: string) => void 
 }
 
-export const AutoComplete: FC<AutoCompleteProps> = (props) => {
+const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const {
         fetchSuggestions,
         value,
@@ -18,6 +18,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const [inputValue, setInputValue] = useState(value)
     const [suggestions, setSuggestions] = useState<string[]>([])
 
+    console.log(suggestions)
     const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.trim()
         setInputValue(value)
@@ -26,10 +27,24 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
             const result = fetchSuggestions(value)
             setSuggestions(result)
         } else {
-            setSuggestions([])
+            setSuggestions([]) 
         }
     }
 
+    //写一个返回列表的函数
+    const generateDropdown = () => {
+        return (
+            <ul>
+                {suggestions.map((item,index) => {
+                    return (
+                        <li key={index}>
+                            {item}
+                        </li>
+                    )
+                })}
+            </ul>
+        )
+    }
     return(
         <div className='hw-auto-complete'>
             <Input
@@ -37,8 +52,10 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
                 onChange={handleChange}
                 {...restProps}
             ></Input>
+            {(suggestions.length > 0) && generateDropdown()}
 
         </div>
     )
 
 }
+export default AutoComplete
